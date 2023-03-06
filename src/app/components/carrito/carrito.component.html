@@ -1,0 +1,172 @@
+<section>
+  <div
+    class="d-{{
+      productos.length > 0 ? 'flex' : 'none'
+    }} justify-content-between align-items-center my-3 gap-3"
+  >
+    <div
+      class="d-flex justify-content-between align-items-center cart__title"
+      style="width: 100% !important"
+    >
+      <h3 class="cart__title-sub">Lista de compras</h3>
+      <div
+        class="d-flex align-items-center flex-column justify-content-center cart__title-sub"
+      >
+        <p class="d-block m-auto fw-bolder" style="width: 100% !important">
+          Subtotal
+        </p>
+        <p class="d-block m-auto">$ {{ total().toFixed(2) }}</p>
+      </div>
+    </div>
+
+    <div style="width: max-content !important">
+      <button
+      *ngIf="estaLogueado()"
+        class="btn btn-danger btn-general fw-semibold py-2"
+        style="width: inherit !important"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseOrder"
+        aria-expanded="false"
+        aria-controls="collapseOrder"
+      >
+        <i class="fa-solid fa-bag-shopping"></i>
+        Proceder a pagar
+      </button>
+    </div>
+
+  </div>
+  <div
+    *ngIf="productos.length > 0; then thenProductos; else elseProductos"
+  ></div>
+  <ng-template #thenProductos>
+    <app-carrito-producto
+      *ngFor="let producto of productos"
+      [producto]="producto"
+    ></app-carrito-producto>
+    <hr />
+  </ng-template>
+  <ng-template #elseProductos
+    ><div class="d-flex justify-content-between my-3">
+      <h3>Lista de compras</h3>
+      <a href="/" class="link-danger text-decoration-underline"
+        >Continuar comprando</a
+      >
+    </div>
+    <div
+      class="border rounded d-flex flex-column justify-content-center align-items-center gap-2"
+      style="height: 350px"
+    >
+      <i class="fa-solid fa-bag-shopping fa-5x" style="color: grey"></i>
+      <p>Tu carrito está vacio</p>
+      <button
+        class="btn btn-danger btn-general fw-semibold"
+        style="width: inherit !important"
+      >
+        <i class="fa-solid fa-cart-shopping"></i>
+        Continuar comprando
+      </button>
+    </div>
+  </ng-template>
+  <div
+    class="pago d-{{
+      productos.length > 0 ? 'flex' : 'none'
+    }} justify-content-between"
+  >
+    <h4>Total a pagar</h4>
+    <h4>$ {{ total().toFixed(2) }}</h4>
+  </div>
+  <div
+    class="d-{{
+      productos.length > 0 ? 'flex' : 'none'
+    }} justify-content-center my-4"
+  >
+    <button
+     *ngIf="estaLogueado()"
+      class="btn btn-danger btn-general fw-semibold py-2"
+      style="width: 100%"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseOrder"
+      aria-expanded="false"
+      aria-controls="collapseOrder"
+     
+    >
+    
+      <i class="fa-solid fa-bag-shopping"
+      ></i>
+      Proceder a pagar
+    </button>
+  </div>
+  <div
+    class="d-{{
+      productos.length > 0 ? 'flex' : 'none'
+    }} justify-content-center my-4"
+  >
+    <button
+     *ngIf="!estaLogueado()"
+      class="btn btn-danger btn-general fw-semibold py-2"
+      style="width: 100%"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseOrder"
+      aria-expanded="false"
+      aria-controls="collapseOrder"
+     
+    >
+    
+      <i class="fa-solid fa-sack-xmark">
+      </i>
+      Iniciar Sesion para Comprar!
+    </button>
+  </div>
+ 
+<div *ngIf="estaLogueado()"> 
+  <app-order></app-order>
+</div>
+  <hr />
+  <div
+    class="d-{{
+      productos.length > 0 ? 'flex' : 'none'
+    }} justify-content-center gap-5 fst-italic"
+  >
+    <span class="d-flex align-items-center gap-2">
+      <i class="fa-solid fa-truck-fast" style="color: rgb(105, 98, 98)"></i>
+      <span>Envios a todo el país</span>
+    </span>
+    <span class="d-flex align-items-center gap-2">
+      <i class="fa-solid fa-check-to-slot" style="color: rgb(105, 98, 98)"></i>
+      <span>Envios autorizados</span>
+    </span>
+  </div>
+</section>
+
+<section class="pt-1">
+  <div class="d-flex gap-5 justify-content-center banner-info__cart">
+    <span
+      class="text-muted rounded-circle border border-2 p-4 fw-semibold d-flex gap-2 flex-column align-items-center text-center"
+      style="max-width: 150px"
+    >
+      <i class="fa-solid fa-truck-fast fa-3x"></i>
+      <span class="d-block">Envios a todo el país</span>
+    </span>
+    <span
+      class="text-muted rounded-circle border border-2 p-4 fw-semibold d-flex gap-2 flex-column align-items-center text-center"
+      style="max-width: 150px"
+    >
+      <i class="fa-brands fa-whatsapp fa-3x"></i>
+      <span class="d-block">Ventas por What's App</span>
+    </span>
+    <span
+      class="text-muted rounded-circle border border-2 p-4 fw-semibold d-flex gap-2 flex-column align-items-center text-center"
+      style="max-width: 150px"
+    >
+      <i class="fa-solid fa-calendar-days fa-3x"></i>
+      <span class="d-block">Los 365 días del año</span>
+    </span>
+    <span
+      class="text-muted rounded-circle border border-2 p-4 fw-semibold d-flex gap-2 flex-column align-items-center text-center"
+      style="max-width: 150px"
+    >
+      <i class="fa-regular fa-star fa-3x"></i>
+      <span class="d-block">5 estrellas de rating</span>
+    </span>
+  </div>
+</section>

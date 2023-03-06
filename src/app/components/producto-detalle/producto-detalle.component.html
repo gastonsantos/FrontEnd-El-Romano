@@ -1,0 +1,101 @@
+<section>
+  <div class="row my-4">
+    <div class="col-md-12">
+      <div
+        class="row g-0 p-2 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+      >
+        <div
+          class="col p-4 d-flex flex-column position-static justify-content-between"
+        >
+          <strong class="d-inline-block mb-2 text-primary">
+            {{ productoDetalle.categoria }}
+          </strong>
+          <h2 class="mb-0">{{ productoDetalle.nombre }}</h2>
+          <div class="mb-1 text-muted">
+            <strong>{{ productoDetalle.autor }}</strong>
+          </div>
+
+          <div class="my-2 d-flex gap-1 justify-content-start">
+            <li *ngFor="let n of numSequence(productoDetalle.calificacion)">
+              <i class="fa-solid fa-star" style="font-size: 12px"></i>
+            </li>
+          </div>
+          <p>
+            Stock: <span class="fw-bolder">{{ productoDetalle.stock }} u.</span>
+          </p>
+          <p *ngIf="productoDetalle.stock > 0" class="card-text mb-auto">
+            En Stock
+          </p>
+          <p *ngIf="productoDetalle.stock <= 0" class="card-text mb-auto">
+            Sin Stock
+          </p>
+          <div class="mt-3" style="width: 150px">
+            <div class="input-group">
+              <button
+                type="button"
+                class="btn btn-primary btn-md"
+                (click)="
+                  downProductQuantity(productoDetalle);
+                  setCantidad(productoDetalle)
+                "
+              >
+                -
+              </button>
+              <!--<span class="form-control text-center">{{
+                producto.cantidad
+              }}</span>-->
+              <input
+                type="number"
+                class="form-control"
+                [(ngModel)]="productoDetalle.cantidad"
+                style="width: 80px !important"
+                (focusout)="verificarCantidad(productoDetalle)"
+                (change)="setCantidad(productoDetalle)"
+              />
+              <button
+                type="button"
+                class="btn btn-primary btn-md"
+                (click)="
+                  upProductQuantity(productoDetalle);
+                  setCantidad(productoDetalle)
+                "
+              >
+                +
+              </button>
+            </div>
+          </div>
+          <div class="col-12 mx-auto text-start mt-3">
+            <button
+              routerLink="/carrito/"
+              (click)="addToCart(productoDetalle)"
+              class="btn btn-danger btn-general fw-semibold"
+            >
+              <!-- routerLink="/comprar/{{ productoDetalle.id }}" -->
+              <i class="fa fa-shopping-cart"></i>
+              Añadir al carrito
+            </button>
+          </div>
+          <!--Para prueba-->
+        </div>
+        <div class="col-auto d-none m-auto d-lg-block">
+          <img
+            class="img-thumbnail"
+            src="{{ productoDetalle.imagen }}"
+            class="card-img-top"
+            [height]="280"
+            [alt]="productoDetalle.nombre"
+          />
+          <!--[src]="productoDetalle.imagen"-->
+        </div>
+      </div>
+      <div class="container col-md-12">
+        <div class="rounded bg-light p-4">
+          <h4><strong>Sinopsis/Descripcion</strong></h4>
+          <p class="card-text mb-auto">
+            {{ productoDetalle.descripcion }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

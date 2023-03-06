@@ -1,0 +1,106 @@
+<!-- <section>
+  <div class="d-flex flex-wrap justify-content-center">
+    <div class="row">
+      <div class="col-md-4">
+        <h4 class="text-center"><strong></strong></h4>
+        <hr />
+        <div class="profile-card-2" routerLink="/categoria/terror">
+          <img
+            src="../../assets/imagenes/terror6.jpg"
+            class="img img-responsive"
+          />
+          <div class="profile-name">TERROR</div>
+          <div class="profile-username">@terror</div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <h4 class="text-center"><strong></strong></h4>
+        <hr />
+        <div class="profile-card-6" routerLink="/categoria/ficcion">
+          <img
+            src="../../assets/imagenes/ficcion.jpg"
+            class="img img-responsive"
+          />
+          <div class="profile-name">CIENCIA <br />FICCION</div>
+          <div class="profile-position">@cienciaFiccion</div>
+          <div class="profile-overview">
+            <div class="profile-overview"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" routerLink="/categoria/juvenil">
+        <h4 class="text-center"><strong></strong></h4>
+        <hr />
+        <div class="profile-card-4 text-center">
+          <img src="../../assets/imagenes/fantasia3.jpg" />
+          <div class="profile-content">
+            <div class="profile-name">
+              JUVENIL
+              <p>@juvenil</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>--->
+<!-- /SECTION --->
+
+<!-- SECTION -->
+<section id="lista-productos">
+  <div *ngIf="loading; then thenProductos; else elseLoading"></div>
+  <ng-template #thenProductos>
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border m-5" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #elseLoading>
+    <div class="product-container" style="max-width: 1024px">
+      <div *ngFor="let producto of productosNuevos">
+        <div
+          class="product-card d-flex flex-column gap-2 border border-2 rounded-4 p-3"
+        >
+          <div class="product-img d-block m-auto">
+            <img
+              [src]="producto.imagen"
+              class="card-img-top"
+              [alt]="producto.nombre"
+              height="180"
+              width="120"
+              style="object-fit: cover"
+            />
+          </div>
+          <div class="product-body text-center">
+            <span style="font-size: 14px">{{ producto.categoria }}</span>
+            <span
+              class="product-name my-2 d-block"
+              style="word-break: break; width: 250px; height: 60px"
+            >
+              <a href="/producto/{{ producto.id }}" class="text-dark">
+                {{ producto.nombre }}
+              </a>
+            </span>
+            <div class="d-flex gap-2 justify-content-around align-items-center">
+              <a
+                href="/producto/{{ producto.id }}"
+                class="btn btn-light border rounded-circle"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Ver detalle"
+                style="border-radius: 60px; padding: 5px 10px"
+              >
+                <i class="fa fa-eye" style="color: red"></i>
+              </a>
+              <h5 class="semi-bold">
+                $ {{ producto.precio.toFixed(2) }}
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</section>

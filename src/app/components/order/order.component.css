@@ -1,0 +1,189 @@
+@import url("../../../styles.css");
+/*Card containing 2 cards*/
+.card0 {
+  margin: 40px 12px 15px 12px;
+  border: 0;
+}
+
+/*Left Side card*/
+.card1 {
+  margin: 0;
+  padding: 15px;
+  padding-top: 25px;
+  padding-bottom: 0px;
+  /* background: #263238; */
+  background-image: url("./../../../assets/imagenes/payfondo.jpg");
+  height: 100%;
+}
+
+.bill-head {
+  color: #ffffff;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-size: 30px;
+}
+
+.line {
+  border-right: 1px grey solid;
+}
+
+.bill-date {
+  color: #bdbdbd;
+}
+
+.red-bg {
+  margin-top: 25px;
+  margin-left: 0px;
+  margin-right: 0px;
+  background-color: #f44336;
+  padding-left: 20px !important;
+  padding: 25px 10px 25px 15px;
+}
+
+#total {
+  margin-top: 0px;
+  padding-left: 7px;
+}
+
+#total-label {
+  margin-bottom: 0px;
+  color: #ffffff;
+  padding-left: 7px;
+}
+
+#heading1 {
+  color: #ffffff;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+#heading2 {
+  font-size: 27px;
+  color: #d50000;
+}
+
+/*For font-awesome icons in Placeholder*/
+
+/*Right Side Card*/
+.card2 {
+  padding: 25px;
+  margin: 0;
+  height: 100%;
+}
+
+.form-card .pay {
+  font-weight: bold;
+}
+
+
+/*Imaged Radio Buttons*/
+.radio-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.radio {
+  display: inline-block;
+  width: 204;
+  height: 64;
+  border-radius: 0;
+  background: lightblue;
+  box-sizing: border-box;
+  border: 2px solid lightgrey;
+  cursor: pointer;
+  margin: 8px 25px 8px 0px;
+}
+
+.radio:hover {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.radio.selected {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.4);
+}
+
+/*Fit image in bootstrap div*/
+.fit-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+
+body {
+	font-family: 'Varela Round', sans-serif;
+}
+.modal-confirm {		
+	color: #636363;
+	width: 325px;
+	font-size: 14px;
+}
+.modal-confirm .modal-content {
+	padding: 20px;
+	border-radius: 5px;
+	border: none;
+}
+.modal-confirm .modal-header {
+	border-bottom: none;   
+	position: relative;
+}
+.modal-confirm h4 {
+	text-align: center;
+	font-size: 26px;
+	margin: 30px 0 -15px;
+}
+.modal-confirm .form-control, .modal-confirm .btn {
+	min-height: 40px;
+	border-radius: 3px; 
+}
+.modal-confirm .close {
+	position: absolute;
+	top: -5px;
+	right: -5px;
+}	
+.modal-confirm .modal-footer {
+	border: none;
+	text-align: center;
+	border-radius: 5px;
+	font-size: 13px;
+}	
+.modal-confirm .icon-box {
+	color: #fff;		
+	position: absolute;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	top: -70px;
+	width: 95px;
+	height: 95px;
+	border-radius: 50%;
+	z-index: 9;
+	background: rgb(170, 66, 66);
+	padding: 15px;
+	text-align: center;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.modal-confirm .icon-box i {
+	font-size: 58px;
+	position: relative;
+	top: 3px;
+}
+.modal-confirm.modal-dialog {
+	margin-top: 80px;
+}
+.modal-confirm .btn {
+	color: #fff;
+	border-radius: 4px;
+	background: rgb(170, 66, 66);
+	text-decoration: none;
+	transition: all 0.4s;
+	line-height: normal;
+	border: none;
+}
+.modal-confirm .btn:hover, .modal-confirm .btn:focus {
+	background: rgb(170, 66, 66);
+	outline: none;
+}
+.trigger-btn {
+	display: inline-block;
+	margin: 100px auto;
+}

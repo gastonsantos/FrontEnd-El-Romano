@@ -1,0 +1,117 @@
+<section>
+  <div class="d-flex gap-5 justify-content-around">
+    <div class="col form-signup">
+      <h3 class="mb-4 text-center">Registro de usuario</h3>
+      <form
+        class="d-flex flex-column gap-3"
+        [formGroup]="registrarUsuario"
+        (ngSubmit)="registrar()"
+      >
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Usuario"
+            formControlName="usuario"
+          />
+          <label>Usuario</label>
+          <span *ngIf="registrarUsuario.get('usuario')?.hasError('required') && registrarUsuario.get('usuario')?.touched" class="text-danger"> El <strong>Usuario</strong> es requerido</span>
+        </div>
+        <div class="form-floating">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Email"
+            formControlName="email"
+          />
+          <label>Email</label>
+          <span *ngIf="registrarUsuario.get('email')?.hasError('required') && registrarUsuario.get('email')?.touched" class="text-danger"> El <strong>Email</strong> es requerido</span>
+          <span *ngIf="registrarUsuario.get('email')?.hasError('email') && registrarUsuario.get('email')?.touched" class="text-danger"> Debe ser un <strong>Email</strong> valido</span>
+
+        </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            formControlName="password"
+          />
+          <label>Password</label>
+          <span *ngIf="registrarUsuario.get('password')?.hasError('required') && registrarUsuario.get('password')?.touched" class="text-danger"> El <strong>Pasword</strong> es requerido</span>
+          <span *ngIf="registrarUsuario.get('password')?.hasError('pattern') && registrarUsuario.get('password')?.touched" class="text-danger"> La <strong>Contraseña</strong> debe contener mínimo <strong>6</strong> caracteres, al menos una <strong>letra</strong> y un <strong>numero</strong></span>
+
+        </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Repetir password"
+            formControlName="repetirPassword"
+          />
+          <label>Repetir password</label>
+          <span *ngIf="registrarUsuario.get('repetirPassword')?.hasError('required') && registrarUsuario.get('repetirPassword')?.touched" class="text-danger"> La <strong>repeticion</strong> es requerida</span>
+
+        </div>
+        <div class="d-flex gap-2">
+          <div class="form-floating" style="width: 100%">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Nombre"
+              formControlName="name"
+            />
+            <label>Nombre</label>
+            <span *ngIf="registrarUsuario.get('name')?.hasError('required') && registrarUsuario.get('name')?.touched" class="text-danger"> El <strong>Nombre</strong> es requerido</span>
+
+          </div>
+          <div class="form-floating" style="width: 100%">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Apellido"
+              formControlName="apellido"
+            />
+            <label>Apellido</label>
+            <span *ngIf="registrarUsuario.get('apellido')?.hasError('required') && registrarUsuario.get('apellido')?.touched" class="text-danger"> El <strong>Apellido</strong> es requerido</span>
+
+          </div>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Domicilio"
+            formControlName="domicilio"
+          />
+          <label>Domicilio</label>
+          <span *ngIf="registrarUsuario.get('domicilio')?.hasError('required') && registrarUsuario.get('domicilio')?.touched" class="text-danger"> El <strong>Domicilio</strong> es requerido</span>
+
+        </div>
+        <div>
+          <button
+            type="submit"
+            class="btn btn-warning fw-bolder"
+            style="border-radius: 60px"
+            [disabled]="registrarUsuario.invalid" > <!-- Disabled -->
+            Registrarse
+          </button>
+        </div>
+      </form>
+    </div>
+    <div
+      class="col-6 d-flex align-items-center justify-content-center img-signup"
+    >
+      <div
+        style="width: 100%; height: 100%; filter: invert(100%)"
+        class="logotipo d-flex gap-2 align-items-center justify-content-center"
+      >
+        <img src="../../../assets/imagenes/iso.png" alt="isotipo" width="50" />
+        <img
+          width="250"
+          src="https://fontmeme.com/permalink/221001/e8000a6afc66936e040a5d1e9a070f90.png"
+          alt="fuente-uncial-antiqua"
+        />
+      </div>
+    </div>
+  </div>
+</section>
